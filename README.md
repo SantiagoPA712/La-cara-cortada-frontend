@@ -59,7 +59,7 @@ Este es el frontend de la aplicación **La Cara Cortada**, desarrollado en React
 
 ---
 
-## **Estructura del Proyecto**
+## **Estructura del Proyecto (Principal)**
 
 ```plaintext
 frontend/
