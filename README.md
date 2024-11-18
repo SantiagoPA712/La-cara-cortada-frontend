@@ -1,46 +1,152 @@
-# Getting Started with Create React App
+# La Cara Cortada - Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este es el frontend de la aplicación **La Cara Cortada**, desarrollado en React. La aplicación interactúa con un backend basado en NestJS y permite a los usuarios explorar modelos, productos de maquillaje, eventos de moda, fotos, y membresías exclusivas.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## **Características Principales**
 
-### `npm start`
+- **Autenticación de Usuario**:
+  - Inicio de sesión con JWT.
+  - Rutas protegidas mediante `PrivateRoute`.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- **Interfaz de Usuario**:
+  - Navegación intuitiva con rutas para modelos, productos, eventos, fotos y membresías.
+  - Interfaz responsiva para dispositivos móviles y de escritorio.
+  - Estilos básicos aplicados con CSS.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- **Consumo de API**:
+  - Comunicación con el backend mediante Axios.
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## **Requisitos Previos**
 
-### `npm run build`
+### **Software Necesario**
+- **Node.js** (v16 o superior)
+- **npm** (incluido con Node.js)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## **Instalación**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Clona el repositorio:
+   ```bash
+   git clone <URL_DEL_REPOSITORIO>
+   cd frontend
+   ```
 
-### `npm run eject`
+2. Instala las dependencias:
+   ```bash
+   npm install
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+3. Configura las variables de entorno:
+   Crea un archivo `.env` en el directorio raíz y agrega la URL del backend:
+   ```plaintext
+   REACT_APP_API_URL=http://localhost:3000/api
+   ```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+4. Inicia el servidor de desarrollo:
+   ```bash
+   npm start
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+5. Abre la aplicación en tu navegador:
+   ```plaintext
+   http://localhost:3000
+   ```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+---
 
-## Learn More
+## **Estructura del Proyecto**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```plaintext
+frontend/
+├── src/
+│   ├── components/         # Componentes reutilizables (Navbar, PrivateRoute)
+│   ├── pages/              # Páginas principales (Home, Login, Models, etc.)
+│   ├── services/           # Lógica de conexión con la API (Axios)
+│   ├── App.tsx             # Punto de entrada principal de React
+│   ├── routes.tsx          # Configuración de rutas
+├── public/                 # Archivos estáticos
+├── .env                    # Variables de entorno
+├── package.json            # Dependencias y scripts
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
+
+## **Páginas Disponibles**
+
+### **Rutas Principales**
+
+| Ruta                | Descripción                          |
+|---------------------|--------------------------------------|
+| `/`                 | Página de inicio                    |
+| `/login`            | Inicio de sesión                    |
+| `/models`           | Listado de modelos                  |
+| `/products`         | Listado de productos de maquillaje  |
+| `/events`           | Listado de eventos de moda          |
+| `/photos`           | Galería de fotos para la venta      |
+| `/memberships`      | Detalles de membresías exclusivas   |
+| `/dashboard`        | Panel de administración (privado)   |
+
+---
+
+## **Consumo de API**
+
+El frontend consume las siguientes rutas de la API:
+
+- **Usuarios:**
+  - `POST /auth/login`: Para autenticar usuarios.
+- **Modelos:**
+  - `GET /models`: Obtiene todos los modelos.
+- **Productos:**
+  - `GET /products`: Lista los productos disponibles.
+- **Eventos:**
+  - `GET /events`: Lista los eventos disponibles.
+
+---
+
+## **Pruebas**
+
+Para asegurarte de que el frontend funciona correctamente:
+
+1. Inicia el backend en el puerto `3000`:
+   ```bash
+   npm run start:dev
+   ```
+
+2. Inicia el frontend en el puerto `3000`:
+   ```bash
+   npm start
+   ```
+
+3. Navega a la página principal y prueba las siguientes funcionalidades:
+   - Inicio de sesión con credenciales válidas.
+   - Navegación por todas las páginas disponibles.
+   - Verificación de rutas protegidas.
+
+---
+
+## **Despliegue**
+
+1. Construye la aplicación:
+   ```bash
+   npm run build
+   ```
+
+2. Despliega en una plataforma como Vercel o Netlify:
+   - Para Vercel:
+     ```bash
+     npx vercel
+     ```
+   - Para Netlify, sube la carpeta `build` al dashboard.
+
+3. Configura la variable `REACT_APP_API_URL` en el entorno de producción.
+
+---
+
+## **Licencia**
+
+Este proyecto es ficticio y no está destinado para uso comercial.
