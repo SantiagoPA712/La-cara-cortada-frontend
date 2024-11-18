@@ -70,7 +70,6 @@ frontend/
 │   ├── App.tsx             # Punto de entrada principal de React
 │   ├── routes.tsx          # Configuración de rutas
 ├── public/                 # Archivos estáticos
-├── .env                    # Variables de entorno
 ├── package.json            # Dependencias y scripts
 ```
 
